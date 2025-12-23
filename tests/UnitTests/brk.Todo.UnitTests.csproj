@@ -18,4 +18,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Domain\brk.Todo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
