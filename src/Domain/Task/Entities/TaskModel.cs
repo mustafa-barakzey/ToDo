@@ -3,8 +3,8 @@ namespace brk.Todo.Domain.Task.Entities;
 
 public class TaskModel : BaseEntity
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public string Title { get;private set; }
+    public string Description { get;private  set; }
 
     private TaskModel() { }
     public static TaskModel Create(string title, string description)
