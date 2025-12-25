@@ -1,9 +1,8 @@
 
-using System.Threading.Tasks;
 using brk.Todo.Application.User.Register;
 using brk.Todo.Domain.User.Data;
 using brk.Todo.Domain.User.Entities;
-using NSubstitute;
+
 
 namespace brk.Todo.ApplicationTests.User.Register;
 
