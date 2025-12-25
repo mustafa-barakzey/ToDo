@@ -1,7 +1,7 @@
 
 namespace brk.Todo.Domain.Task.Entities;
 
-public class TaskModel
+public class TaskModel : BaseEntity
 {
     public string Title { get; set; }
     public string Description { get; set; }

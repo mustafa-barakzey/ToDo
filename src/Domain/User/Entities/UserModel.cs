@@ -1,8 +1,7 @@
-using brk.Todo.Domain.Shared.Exceptions;
 
 namespace brk.Todo.Domain.User.Entities;
 
-public class UserModel
+public class UserModel : BaseEntity
 {
     public  string Email { get; private set; }
     public string Password { get; private set; }
