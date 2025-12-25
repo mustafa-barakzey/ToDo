@@ -5,18 +5,16 @@ namespace brk.Todo.UnitTests.User.Entities;
 
 public class UserModelTest
 {
+    private readonly string Email = "mustafabarakzey@gmail.com";
+    private readonly string Password = "MyStr0ngP@ss";
     [Fact]
     public void Register_Should_CreateUser()
     {
-        // Given
-        var email = "mustafabarakzey@gmail.com";
-        var password = "MyStr0ngP@ss";
-
         // When
-        var user = UserModel.Register(email, password);
+        var user = UserModel.Register(Email, Password);
         // Then
-        Assert.Equal(email, user.Email);
-        Assert.Equal(password, user.Password);
+        Assert.Equal(Email, user.Email);
+        Assert.Equal(Password, user.Password);
     }
     
     [Fact]
@@ -24,12 +22,27 @@ public class UserModelTest
     {
         // Given
         var email = "mustafabarakzeygmail.com";
-        var password = "MyStr0ngP@ss";
 
         // When
-        var action =()=> UserModel.Register(email, password);
-        
+        var action =()=> UserModel.Register(email, Password);
+
         // Then
         Assert.Throws<DomainException>(action);
+    }
+
+    [Fact]
+    public void Update_Should_PersonalInfo()
+    {
+        // Given
+        var name = "Mustafa";
+        var family = "Barakzey";
+        var user = UserModel.Register(Email,Password);
+
+        // When
+        user.Update(name,family);
+
+        // Then
+        Assert.Equal(name,user.Name);
+        Assert.Equal(family,user.Family);
     }
 }
