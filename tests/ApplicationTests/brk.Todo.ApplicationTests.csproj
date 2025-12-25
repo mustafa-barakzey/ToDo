@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Task/Add/" />
+    <Folder Include="Task/UpdateDescription/" />
     <Folder Include="User/Register/" />
   </ItemGroup>
 
