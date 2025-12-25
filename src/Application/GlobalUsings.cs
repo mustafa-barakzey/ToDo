@@ -1,0 +1,1 @@
+global using brk.Todo.Application.Shared.Contracts;
