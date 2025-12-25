@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Task/Data/" />
+    <Folder Include="User/Data/" />
+  </ItemGroup>
+
 </Project>
