@@ -11,9 +11,22 @@ public class TaskModel : BaseEntity
     {
         if (string.IsNullOrWhiteSpace(title))
             throw new DomainException("title is required");
-            var model = new TaskModel();
+        var model = new TaskModel();
         model.Title = title;
         model.Description = description;
         return model;
+    }
+
+    public void UpdateTitle(string title)
+    {
+        if (string.IsNullOrWhiteSpace(title))
+            throw new DomainException("title is required");
+
+        Title = title;
+    }
+
+    public void UpdateDescription(string desciption)
+    {
+        Description = desciption;
     }
 }
