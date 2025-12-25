@@ -17,7 +17,7 @@ public class UserRegisterCommandHandlerTest
     }
 
     [Fact]
-    public async Task Handler_Should_RegisterNewUser()
+    public async System.Threading.Tasks.Task Handler_Should_RegisterNewUser()
     {
         // Given
         var command = new UserRegisterCommand()
@@ -37,7 +37,7 @@ public class UserRegisterCommandHandlerTest
     }
 
     [Fact]
-    public async Task Handler_Should_Return_EmailIsAlreadyExist()
+    public async System.Threading.Tasks.Task Handler_Should_Return_EmailIsAlreadyExist()
     {
         // Given
         var command = new UserRegisterCommand()

@@ -4,6 +4,7 @@ namespace brk.Todo.UnitTests.Task.Entities;
 
 public class TaskModelTests
 {
+    private readonly int UserId = 1;
     private readonly string Title = "task-1";
     private readonly string Description = "task-1 description";
     [Fact]
@@ -12,9 +13,10 @@ public class TaskModelTests
         // Given
 
         // When
-        var task= TaskModel.Create(Title,Description);
+        var task= TaskModel.Create(UserId,Title,Description);
 
         // Then
+        Assert.Equal(UserId,task.UserId);
         Assert.Equal(Title,task.Title);
         Assert.Equal(Description,task.Description);
     }
@@ -26,7 +28,7 @@ public class TaskModelTests
         var title = string.Empty;
     
         // When
-        var action =()=> TaskModel.Create(title,Description);
+        var action =()=> TaskModel.Create(UserId,title,Description);
     
         // Then
         Assert.Throws<DomainException>(action);
@@ -37,7 +39,7 @@ public class TaskModelTests
     {
         // Given
         var newTitle="updated title";
-        var task = TaskModel.Create(newTitle,Description);
+        var task = TaskModel.Create(UserId,newTitle,Description);
         // When
         task.UpdateTitle(newTitle);
         // Then
@@ -49,7 +51,7 @@ public class TaskModelTests
     {
         // Given
         var newTitle = string.Empty;
-        var task = TaskModel.Create(Title,Description);
+        var task = TaskModel.Create(UserId,Title,Description);
         // When
         var action = () => task.UpdateTitle(newTitle);
 
@@ -62,7 +64,7 @@ public class TaskModelTests
     {
         // Given
         var newDesciption="updated Desciption";
-        var task = TaskModel.Create(Title,Description);
+        var task = TaskModel.Create(UserId,Title,Description);
         // When
         task.UpdateDescription(newDesciption);
         // Then

@@ -20,7 +20,7 @@ public class UserUpdatePersonalInfoCommandHandlerTests
     }
 
     [Fact]
-    public async Task Handler_Should_UpdatePersonalInfo()
+    public async System.Threading.Tasks.Task Handler_Should_UpdatePersonalInfo()
     {
         // Given
         const int userId = 1;
@@ -44,7 +44,7 @@ public class UserUpdatePersonalInfoCommandHandlerTests
     }
 
     [Fact]
-    public async Task Handler_Should_Return_UserNotFound()
+    public async System.Threading.Tasks.Task Handler_Should_Return_UserNotFound()
     {
         // Given
         var command = GetCommand();
