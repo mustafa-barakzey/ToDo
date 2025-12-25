@@ -5,7 +5,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Task/" />
     <Folder Include="Task/Add/" />
     <Folder Include="User/UpdatePersonalInfo/" />
   </ItemGroup>
