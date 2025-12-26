@@ -11,10 +11,7 @@ public static class EndpointExtension
                         .Where(t =>
                             !t.IsAbstract &&
                             !t.IsInterface &&
-                            t.GetInterfaces()
-                             .Any(i => i.IsGenericType &&
-                                        i.GetGenericTypeDefinition() == typeof(IEndpoint)
-                            ))
+                            t.IsAssignableTo(typeof(IEndpoint)))
                         .SelectMany(type=>type.GetInterfaces().Select(i=>new ServiceDescriptor(i,type,ServiceLifetime.Scoped)))
                         .ToList();
         services.TryAddEnumerable(enpoints);
