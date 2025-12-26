@@ -1,5 +1,6 @@
 using brk.Todo.Application.Shared.Contracts;
 using brk.Todo.Infra.Implementations;
+using brk.Todo.Infra.JWT;
 using brk.Todo.Infra.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ public static class Setup
     {
         services.AddScoped<ICurrentUser,CurrentUser>();
         services.AddPersistence(configuration);
+        services.AddJwtAuthentication(configuration);
         return services;
     }
 }
