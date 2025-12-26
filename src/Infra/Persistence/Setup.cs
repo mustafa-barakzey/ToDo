@@ -26,8 +26,15 @@ internal static class Setup
         {
             option.UseInMemoryDatabase("Todo_db");
         });
+
+        services.AddDbContext<QueryDbContext>(option =>
+        {
+            option.UseInMemoryDatabase("Todo_db");
+        });
         return services
                 .AddScoped<ITaskCommandRepository,TaskCommandRepository>()
-                .AddScoped<IUserCommandRepository,UserCommandRepository>();
+                .AddScoped<IUserCommandRepository,UserCommandRepository>()
+                .AddScoped<IUserQueryRepository,UserQueryRepository>()
+                ;
     }
 }

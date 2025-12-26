@@ -8,6 +8,7 @@ public static class ApiRoutes
     {
         private const string BasePath = "Auth";
         public const string Register = $"{BasePath}/Register";
+        public const string Login = $"{BasePath}/Login";
         public const string Tag = BasePath;
     }
 }
