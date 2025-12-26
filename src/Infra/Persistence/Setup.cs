@@ -17,11 +17,15 @@ internal static class Setup
         if(string.IsNullOrWhiteSpace(sqlServerConnectionString))
             throw new NullReferenceException("SQL Server Connection string is empty");
 
+        // services.AddDbContext<CommandDbContext>(option =>
+        // {
+        //     option.UseSqlServer(sqlServerConnectionString);
+        // });
+
         services.AddDbContext<CommandDbContext>(option =>
         {
-            option.UseSqlServer(sqlServerConnectionString);
+            option.UseInMemoryDatabase("Todo_db");
         });
-
         return services
                 .AddScoped<ITaskCommandRepository,TaskCommandRepository>()
                 .AddScoped<IUserCommandRepository,UserCommandRepository>();

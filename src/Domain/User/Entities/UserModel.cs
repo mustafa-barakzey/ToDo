@@ -3,10 +3,10 @@ namespace brk.Todo.Domain.User.Entities;
 
 public class UserModel : BaseEntity
 {
-    public  string Email { get; private set; }
+    public string Email { get; private set; }
     public string Password { get; private set; }
-    public string Name { get; private set; }
-    public string Family { get; private set; }
+    public string? Name { get; private set; }
+    public string? Family { get; private set; }
 
     private UserModel(){}
     public static UserModel Register(string email, string password)
