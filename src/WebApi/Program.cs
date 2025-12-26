@@ -12,7 +12,14 @@ builder.Services
         .AddInfraServices(builder.Configuration)
         .AddApplicationServices()
         .AddEndpoints();
-
+builder.Services.AddCors(option =>
+{
+    option.DefaultPolicyName = "public";
+    option.AddPolicy("public", policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,8 +27,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
-app.UseHttpsRedirection();
+app.UseCors("public");
+// app.UseHttpsRedirection();
 app.MapEndpoints();
 
 app.Run();
