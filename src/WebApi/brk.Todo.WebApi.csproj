@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infra\brk.Todo.Infra.csproj" />
+    <ProjectReference Include="..\Application\brk.Todo.Application.csproj" />
   </ItemGroup>
 
 </Project>

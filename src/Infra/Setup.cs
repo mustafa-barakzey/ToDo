@@ -1,3 +1,5 @@
+using brk.Todo.Application.Shared.Contracts;
+using brk.Todo.Infra.Implementations;
 using brk.Todo.Infra.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,8 +10,8 @@ public static class Setup
 {
     public static IServiceCollection AddInfraServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<ICurrentUser,CurrentUser>();
         services.AddPersistence(configuration);
-
         return services;
     }
 }

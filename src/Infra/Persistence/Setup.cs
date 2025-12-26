@@ -1,4 +1,8 @@
+using brk.Todo.Domain.Task.Data;
+using brk.Todo.Domain.User.Data;
 using brk.Todo.Infra.Persistence.Contexts;
+using brk.Todo.Infra.Persistence.Task.Data;
+using brk.Todo.Infra.Persistence.User.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +22,8 @@ internal static class Setup
             option.UseSqlServer(sqlServerConnectionString);
         });
 
-        return services;
+        return services
+                .AddScoped<ITaskCommandRepository,TaskCommandRepository>()
+                .AddScoped<IUserCommandRepository,UserCommandRepository>();
     }
 }
