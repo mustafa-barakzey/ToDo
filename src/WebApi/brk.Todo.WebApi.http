@@ -1,0 +1,6 @@
+@brk.Todo.WebApi_HostAddress = http://localhost:5015
+
+GET {{brk.Todo.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
