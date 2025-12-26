@@ -11,4 +11,10 @@ public static class ApiRoutes
         public const string Login = $"{BasePath}/Login";
         public const string Tag = BasePath;
     }
+    public static class Task
+    {
+        private const string BasePath = "Task";
+        public const string Add = $"{BasePath}/Add";
+        public const string Tag = BasePath;
+    }
 }
