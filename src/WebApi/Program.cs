@@ -1,5 +1,6 @@
 using brk.Todo.Application;
 using brk.Todo.Infra;
+using brk.Todo.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,8 @@ builder.Services.AddOpenApi();
 builder.Services
         .AddHttpContextAccessor()
         .AddInfraServices(builder.Configuration)
-        .AddApplicationServices();
+        .AddApplicationServices()
+        .AddEndpoints();
 
 var app = builder.Build();
 
@@ -20,5 +22,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapEndpoints();
 
 app.Run();
