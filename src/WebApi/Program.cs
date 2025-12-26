@@ -4,15 +4,6 @@ using brk.Todo.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-builder.Services.AddAuthentication();
-builder.Services
-        .AddHttpContextAccessor()
-        .AddInfraServices(builder.Configuration)
-        .AddApplicationServices()
-        .AddEndpoints();
 builder.Services.AddCors(option =>
 {
     option.DefaultPolicyName = "public";
@@ -21,6 +12,14 @@ builder.Services.AddCors(option =>
         policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
     });
 });
+// Add services to the container.
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
+builder.Services
+        .AddHttpContextAccessor()
+        .AddInfraServices(builder.Configuration)
+        .AddApplicationServices()
+        .AddEndpoints();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
