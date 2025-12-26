@@ -1,4 +1,6 @@
 using System.Reflection;
+using brk.Todo.Application.User.Register;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -21,6 +23,7 @@ public static class Setup
                         .ToList();
 
         services.TryAddEnumerable(commandHandlers);
+        services.AddValidatorsFromAssemblyContaining<UserRegisterCommandValidator>();
         return services;
     }
 }
