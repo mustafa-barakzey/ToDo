@@ -2,7 +2,7 @@
 
 namespace brk.Todo.Domain.Shared.Data;
 
-public interface IBaseQueryRepository
+public interface IBaseQueryRepository<TModel> where TModel: BaseEntity
 {
     
 }
